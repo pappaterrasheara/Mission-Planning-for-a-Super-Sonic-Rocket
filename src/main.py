@@ -1,1 +1,1 @@
-print("I Love Isabella");
+import matplotlib.pyplot as plt

@@ -17,9 +17,9 @@ def main():
     time = [row[0] for row in trajectory]
     altitude = [row[1] for row in trajectory]
     velocity = [row[2] for row in trajectory]
+    mach = [row[3] for row in trajectory]
 
     plt.figure(figsize=(10, 5))
-
     plt.subplot(1, 2, 1)
     plt.plot(time, altitude)
     plt.xlabel("Time (s)")
@@ -32,8 +32,18 @@ def main():
     plt.ylabel("Velocity (m/s)")
     plt.title("Rocket Velocity vs Time")
 
+
+    plt.figure(figure=(10,4))
+    plt.plot(time, mach, color ='purple')
+    plt.xlabel("Time (s)")
+    plt.ylabel("Mach Number")
+    plt.title("Rocket Mach Number vs Time")
+    plt.grind(True)
     plt.tight_layout()
     plt.show()
+    print(f"Max Mach: {max(mach):.2f}")
+
 
 if __name__ == "__main__":
     main()
+

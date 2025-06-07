@@ -44,8 +44,14 @@ def simulate():
     trajectory = []
 
     while t <= total_time:
-        trajectory.append((t, h, v))
-        v, h = rk4_step(v, h, t, time_step)
-        t += time_step
+        mach = compute_mach(v, h)
+        trajectory.append((t, h, v, mach))
 
     return trajectory
+
+def compute_mach(v, h):
+    T = T0 - 0.0065 * h # ISA lapse rate for temperature
+    if T <= 0:
+        T = 1 # avoid math domain errors
+    a = math.sqrt(gamma * R * T) # speed of sound
+    return abs(v) / a

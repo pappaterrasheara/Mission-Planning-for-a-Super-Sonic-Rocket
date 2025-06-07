@@ -44,8 +44,11 @@ def simulate():
     trajectory = []
 
     while t <= total_time:
+        
+        v, h = rk4_step(v, h, t, time_step)
         mach = compute_mach(v, h)
         trajectory.append((t, h, v, mach))
+        t += time_step
 
     return trajectory
 

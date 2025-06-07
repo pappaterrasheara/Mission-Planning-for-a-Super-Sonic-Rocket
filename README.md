@@ -2,8 +2,6 @@
 
 This project is a Python-based simulation and planning tool for vertical launch missions of supersonic research rockets. It allows for customizable rocket parameters, calculates key propulsion values, simulates ascent dynamics, and visualizes the trajectory. It's structured to support future expansion into more complex aerospace scenarios such as multi-stage flight, drag modeling, and angled launches.
 
-
-
 # Project Overview
 
 The core of the simulation is built around a 4th-order Runge-Kutta numerical integrator, which models the rocket's vertical ascent under constant thrust, varying mass, and gravity. Users input their own mission parameters—such as rocket mass, thrust, and fuel type—along with specific mission goals like maximum altitude and target Mach number. The simulation computes delta-v, burn time, and continuously updates altitude, velocity, and Mach number over the flight timeline.

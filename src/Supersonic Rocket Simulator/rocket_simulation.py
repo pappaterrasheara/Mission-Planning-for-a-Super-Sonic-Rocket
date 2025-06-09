@@ -53,8 +53,9 @@ def simulate():
     return trajectory
 
 def compute_mach(v, h):
-    T = T0 - 0.0065 * h # ISA lapse rate for temperature
-    if T <= 0:
-        T = 1 # avoid math domain errors
-    a = math.sqrt(gamma * R * T) # speed of sound
+    # ISA lapse rate temperature formula (valid below 11 km)
+    T = T0 - 0.0065 * h
+    if T < 200:  # prevent non-physical values at high altitudes
+        T = 200
+    a = math.sqrt(gamma * R * T)  # speed of sound
     return abs(v) / a
